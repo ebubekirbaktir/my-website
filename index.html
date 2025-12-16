@@ -1,0 +1,1433 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ebubekir Baktır — Portfolio</title>
+  <meta name="description" content="Ebubekir Baktır • Umschüler zum Fachinformatiker Systemintegration (FISI) • Projekte, Zertifikate und Kontakt" />
+  <meta name="theme-color" content="#07181a" />
+  <meta property="og:title" content="Ebubekir Baktır — Portfolio" />
+  <meta property="og:description" content="Projekte, Zertifikate und Kontakt." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/profile.jpg" />
+  <style>
+    :root{
+      --bg0:#f8fafc;
+      --bg1:#eef2f7;
+      --line:rgba(15,23,42,.10);
+      --text:#0f172a;
+      --muted:#334155;
+      --accent:#0ea5e9;
+      --accent2:#22d3ee;
+      --shadow: 0 18px 50px rgba(0,0,0,.38);
+      --r:18px; --r2:26px; --max:1120px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #f7fcfc, #eef9f8);
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px}
+    .nav{
+      position:sticky; top:0; z-index:50;
+      background: rgba(244,247,251,.85);
+      backdrop-filter: blur(14px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{
+      max-width:var(--max); margin:0 auto;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 22px; gap:12px;
+    }
+    .brand{display:flex; align-items:center; gap:10px; text-decoration:none; font-weight:700;}
+    .logo{
+      width:38px;height:38px;border-radius:14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 14px 44px rgba(25,211,208,.25);
+    }
+    .navlinks{display:flex; gap:10px; align-items:center; flex-wrap:wrap;}
+    .navlinks a{
+      text-decoration:none; color:var(--muted);
+      font-weight:850; font-size:14px;
+      padding:10px 12px; border-radius:14px;
+      border:1px solid transparent;
+    }
+    .navlinks a:hover{color:var(--text); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.14);}
+    .cta{display:flex; gap:10px; align-items:center; flex-wrap:wrap;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:10px 14px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.08);
+      color:var(--text); text-decoration:none;
+      font-weight:700; font-size:14px;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      cursor:pointer;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.20);}
+    .btn.primary{
+      background: linear-gradient(135deg, #0ea5e9, #22d3ee);
+      color:#041213; border-color: transparent;
+      box-shadow: 0 16px 54px rgba(25,211,208,.22);
+    }
+    .lang{
+      display:inline-flex; gap:6px; align-items:center;
+      padding:6px; border-radius:16px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+    }
+    .lang button{
+      font: inherit; font-weight:700; font-size:13px;
+      padding:8px 10px; border-radius:12px;
+      border:1px solid transparent;
+      color:var(--muted);
+      background: transparent;
+      cursor:pointer;
+    }
+    .lang button[aria-pressed="true"]{
+      color:#041213;
+      background: linear-gradient(135deg, #0ea5e9, #22d3ee);
+      border-color: transparent;
+    }
+
+    .hero{padding:26px 0 8px;}
+    .hero-grid{display:grid; grid-template-columns: 1.15fr .85fr; gap:16px; align-items:stretch;}
+    .card{
+      background: #ffffff;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: var(--r2);
+      box-shadow: 0 10px 28px rgba(15,23,42,.08);
+    }
+    .hero-card{padding:22px; position:relative; overflow:hidden;}
+    .hero-card::after{
+      content:""; position:absolute; inset:-1px;
+      background: radial-gradient(700px 260px at 30% 0%, rgba(25,211,208,.22), transparent 60%),
+                  radial-gradient(600px 280px at 90% 10%, rgba(47,229,180,.16), transparent 60%);
+      pointer-events:none;
+    }
+    .hero-card > *{position:relative; z-index:1}
+    .kicker{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:7px 12px; border-radius:999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.08);
+      color: var(--muted);
+      font-weight:700; font-size:13px;
+    }
+    h1{margin:14px 0 12px; font-size:42px; font-weight:700; line-height:1.06; letter-spacing:-.1px;}
+    .subtitle{color:var(--muted); font-size:16px; line-height:1.6; margin:0 0 16px; max-width: 75ch;}
+    .badges{display:flex; flex-wrap:wrap; gap:10px; margin: 12px 0 18px;}
+    .badge{
+      padding:9px 12px; border-radius: 999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.08);
+      color: var(--text); font-weight:700; font-size:13px;
+    }
+
+    .side{padding:16px; display:flex; flex-direction:column; gap:12px;}
+    .avatar{
+      width:100%; aspect-ratio: 4 / 3; border-radius: 22px;
+      overflow:hidden; border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.04);
+    }
+    .avatar img{width:100%; height:100%; object-fit:cover; display:block;}
+    .mini{display:grid; grid-template-columns: 1fr 1fr; gap:10px;}
+    .tile{
+      padding:12px; border-radius: 16px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+    }
+    .tile .t{font-size:12px; color:var(--muted); font-weight:900}
+    .tile .v{margin-top:6px; font-size:14px; font-weight:950}
+
+    section{padding:18px 0}
+    .section-title{display:flex; align-items:flex-end; justify-content:space-between; gap:14px; margin: 6px 0 12px;}
+    .section-title h2{margin:0; font-size:20px; letter-spacing:-.1px;}
+    .section-title p{margin:0; color:var(--muted); font-size:14px; line-height:1.5; max-width: 80ch;}
+
+    .collection{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    .tilecard{
+      text-align:left;
+      padding:16px;
+      border-radius: var(--r);
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      cursor:pointer;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+      display:flex; flex-direction:column; min-height: 148px;
+    }
+    .tilecard:hover{transform: translateY(-2px); border-color: rgba(25,211,208,.35); background: rgba(255,255,255,.07);}
+    .tilecard h3{margin: 2px 0 8px; font-size:16px; letter-spacing:-.1px;}
+    .tilecard .meta{color:var(--muted); font-size:13px; line-height:1.55; margin:0 0 12px;}
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:auto}
+    .tag{
+      font-size:12px; font-weight:700;
+      padding:7px 10px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.08);
+      color: var(--text);
+    }
+
+    .overlay{
+      position:fixed; inset:0; z-index:100;
+      background: rgba(0,0,0,.55);
+      display:none;
+      align-items:center; justify-content:center;
+      padding: 18px;
+    }
+    .overlay.open{display:flex;}
+    .modal{
+      width:min(920px, 100%);
+      max-height: min(86vh, 900px);
+      overflow:auto;
+      border-radius: 22px;
+      border:1px solid rgba(255,255,255,.16);
+      background: #ffffff;
+      box-shadow: 0 24px 70px rgba(0,0,0,.55);
+    }
+    .modal-header{
+      padding:16px 16px 10px;
+      display:flex; justify-content:space-between; align-items:flex-start; gap:10px;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      position: sticky; top:0;
+      background: linear-gradient(180deg, rgba(10,35,38,.98), rgba(10,35,38,.92));
+      backdrop-filter: blur(10px);
+    }
+    .modal-header h3{margin:0; font-size:18px; letter-spacing:-.1px;}
+    .modal-header p{margin:6px 0 0; color:var(--muted); font-size:13px; line-height:1.55;}
+    .close{
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.08);
+      color: var(--text);
+      border-radius: 14px;
+      padding:10px 12px;
+      font-weight:700;
+      cursor:pointer;
+    }
+    .close:hover{background: rgba(255,255,255,.09);}
+    .modal-body{padding:16px;}
+    .modal-grid{display:grid; grid-template-columns: 1.2fr .8fr; gap:14px;}
+    .box{
+      padding:14px; border-radius: 18px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+    }
+    .box h4{margin:0 0 8px; font-size:14px;}
+    .box ul{margin:0; padding-left: 18px; color: var(--muted); line-height:1.65; font-size:13px;}
+    .box a{color: rgba(47,229,180,.95); font-weight:700;}
+    .box a:hover{text-decoration:underline;}
+    .footer{
+      padding: 20px 0 40px;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid var(--line);
+      margin-top: 16px;
+    }
+    .footer .f{display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:center;}
+
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns: 1fr}
+      .collection{grid-template-columns: 1fr 1fr}
+      h1{font-size: 36px}
+      .modal-grid{grid-template-columns: 1fr}
+    }
+    @media (max-width: 620px){
+      .navlinks{display:none}
+      .collection{grid-template-columns: 1fr}
+    }
+  
+    /* timeline */
+    .timeline{
+      display:flex; flex-direction:column; gap:12px;
+      position:relative;
+    }
+    .timeline:before{
+      content:""; position:absolute; left:14px; top:6px; bottom:6px;
+      width:2px; background: rgba(255,255,255,.14);
+    }
+    .titem{
+      position:relative; padding-left: 44px;
+    }
+    .dot{
+      position:absolute; left:6px; top:6px;
+      width:18px; height:18px; border-radius:999px;
+      background: linear-gradient(135deg, #0ea5e9, #22d3ee);
+      box-shadow: 0 8px 22px rgba(25,211,208,.14);
+      border:1px solid rgba(255,255,255,.22);
+    }
+    .tcard{
+      padding:14px; border-radius: 18px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+    }
+    .tcard .top{
+      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:baseline;
+      font-weight:700;
+    }
+    .tcard .top span{color:var(--muted); font-size:12px; font-weight:950}
+    .tcard p{margin:8px 0 0; color:var(--muted); font-size:13px; line-height:1.6}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.08);
+      font-weight:700; font-size:12px; color:var(--text);
+    }
+
+  
+    /* Fancy (ornate) typography – offline-safe */
+    h1, h2, h3, h4, .brand, .kicker{
+      font-family: ui-serif, "Georgia", "Times New Roman", Times, serif;
+    }
+    h1{
+      letter-spacing: -0.25px;
+    }
+    h2, h3{
+      letter-spacing: -0.1px;
+    }
+    .subtitle, .meta, body, .btn, .tile .v, .tile .t, .box ul, .tcard p{
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    /* Make modal headings readable on light background */
+    .modal{ background:#ffffff !important; }
+    .modal-header{
+      background: linear-gradient(180deg, rgba(245,252,252,.95), rgba(255,255,255,.92)) !important;
+      border-bottom: 1px solid rgba(0,0,0,.08) !important;
+    }
+    .modal-header h3{ color: var(--text) !important; }
+    .modal-header p{ color: var(--muted) !important; }
+    .modal-body{ color: var(--text) !important; }
+    .box h4{ color: var(--text) !important; font-family: ui-serif, "Georgia", "Times New Roman", Times, serif; }
+    .box ul{ color: var(--muted) !important; }
+    .tcard{ background:#ffffff !important; border-color: rgba(0,0,0,.08) !important; }
+    .tcard .top b{ color: var(--text) !important; font-family: ui-serif, "Georgia", "Times New Roman", Times, serif; }
+    .tcard .top span{ color: var(--muted) !important; }
+    .pill{ border-color: rgba(0,0,0,.10) !important; background: rgba(60,207,207,.10) !important; color: var(--text) !important; }
+
+    /* Overlay a bit lighter */
+    .overlay{ background: rgba(15,23,42,.25) !important; }
+
+
+    /* Subtle emphasis for small tiles */
+    .tile{
+      box-shadow: 0 10px 26px rgba(0,0,0,.08);
+      background: #ffffff !important;
+      border-color: rgba(0,0,0,.08) !important;
+    }
+
+
+    /* Clickability cues */
+    .tilecard{
+      position: relative;
+      border: 1px solid rgba(0,0,0,.10) !important;
+    }
+    .tilecard::after{
+      content: "↗";
+      position:absolute;
+      right:14px;
+      top:14px;
+      width:34px; height:34px;
+      display:flex; align-items:center; justify-content:center;
+      border-radius: 12px;
+      border:1px solid rgba(0,0,0,.10);
+      background: rgba(14,165,233,.10);
+      color: #0b3a3f;
+      font-weight: 800;
+      pointer-events:none;
+    }
+    .tilecard:hover{
+      transform: translateY(-3px) !important;
+      box-shadow: 0 14px 34px rgba(0,0,0,.10) !important;
+      border-color: rgba(60,207,207,.45) !important;
+    }
+    .tilecard:focus-visible{
+      outline: 3px solid rgba(60,207,207,.55);
+      outline-offset: 3px;
+    }
+    .tilecard .meta{
+      margin-bottom: 10px !important;
+    }
+    .tilecard .clickhint{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-top:auto;
+      font-size:13px;
+      font-weight:700;
+      color:#0b3a3f;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      opacity:.9;
+    }
+    .btn{
+      box-shadow: 0 10px 22px rgba(0,0,0,.08);
+    }
+    .btn:hover{ box-shadow: 0 14px 30px rgba(0,0,0,.12); }
+
+
+    /* Pro IT typography + cleaner look */
+    body{
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    }
+    h1, h2, h3, h4, .brand{
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+      font-weight: 700 !important;
+      letter-spacing: -0.2px !important;
+    }
+    .kicker{
+      font-weight: 600 !important;
+    }
+    .card, .tile, .tilecard, .tcard, .box, .modal{
+      border-radius: 18px !important;
+    }
+    .card{
+      box-shadow: 0 10px 30px rgba(15,23,42,.08) !important;
+    }
+    .tile{
+      box-shadow: 0 10px 26px rgba(15,23,42,.10) !important;
+    }
+    .btn{
+      box-shadow: 0 10px 24px rgba(15,23,42,.10) !important;
+    }
+    .btn.primary{
+      box-shadow: 0 14px 34px rgba(14,165,233,.22) !important;
+    }
+    .tilecard::after{
+      color:#0f172a !important;
+    }
+    .tilecard .clickhint{
+      color:#0f172a !important;
+    }
+
+
+    /* Theme system: light default, dark optional */
+    :root{
+      --bg0:#f8fafc;
+      --bg1:#eef2f7;
+      --text:#0f172a;
+      --muted:#334155;
+      --line:rgba(15,23,42,.10);
+      --accent:#0ea5e9;
+      --accent2:#22d3ee;
+    }
+    html[data-theme="dark"]{
+      --bg0:#0b1220;
+      --bg1:#0f1b2d;
+      --text:#eaf2ff;
+      --muted:#b6c4da;
+      --line:rgba(234,242,255,.14);
+      --accent:#38bdf8;
+      --accent2:#22d3ee;
+    }
+    /* Background respects variables (for both themes) */
+    body{
+      background: linear-gradient(180deg, var(--bg0), var(--bg1)) !important;
+      color: var(--text) !important;
+    }
+    .nav{
+      background: rgba(248,250,252,.88) !important;
+      border-bottom:1px solid var(--line) !important;
+    }
+    html[data-theme="dark"] .nav{
+      background: rgba(11,18,32,.78) !important;
+    }
+    /* Cards & surfaces in dark theme */
+    html[data-theme="dark"] .card,
+    html[data-theme="dark"] .tile,
+    html[data-theme="dark"] .tilecard,
+    html[data-theme="dark"] .tcard,
+    html[data-theme="dark"] .box{
+      background: rgba(255,255,255,.06) !important;
+      border-color: rgba(234,242,255,.14) !important;
+      box-shadow: 0 12px 34px rgba(0,0,0,.35) !important;
+    }
+
+    /* Dark mode modal readability (avoid “too transparent” glass look) */
+    html[data-theme="dark"] .modal{
+      background: rgba(11,18,32,.94) !important;
+      border-color: rgba(234,242,255,.18) !important;
+      box-shadow: 0 26px 80px rgba(0,0,0,.65) !important;
+    }
+    html[data-theme="dark"] .modal-body{ color: var(--text) !important; }
+    html[data-theme="dark"] .modal a{ color: #7dd3fc !important; }
+    html[data-theme="dark"] .modal a:hover{ color: #22d3ee !important; }
+    html[data-theme="dark"] .tilecard::after{
+      border-color: rgba(234,242,255,.14) !important;
+      background: rgba(56,189,248,.16) !important;
+      color: var(--text) !important;
+    }
+    html[data-theme="dark"] .tilecard .clickhint{
+      color: var(--text) !important;
+    }
+    html[data-theme="dark"] .pill{
+      border-color: rgba(234,242,255,.16) !important;
+      background: rgba(56,189,248,.14) !important;
+      color: var(--text) !important;
+    }
+    html[data-theme="dark"] .overlay{
+      background: rgba(0,0,0,.55) !important;
+    }
+    html[data-theme="dark"] .modal-header{
+      background: rgba(11,18,32,.98) !important;
+      border-bottom: 1px solid rgba(234,242,255,.16) !important;
+    }
+    html[data-theme="dark"] .modal-header p{ color: var(--muted) !important; }
+    html[data-theme="dark"] .close{
+      border-color: rgba(234,242,255,.18) !important;
+      background: rgba(255,255,255,.06) !important;
+      color: var(--text) !important;
+    }
+
+    /* Print-friendly (CV-like): clean black on white, no shadows, hide interactive UI */
+    @media print{
+      html{ background:#ffffff !important; }
+      body{
+        background:#ffffff !important;
+        color:#000 !important;
+      }
+      .nav, .lang, #themeToggle, .cta, .btn, .overlay{ display:none !important; }
+      a{ color:#000 !important; text-decoration: underline; }
+      .card, .tile, .tilecard, .tcard, .box{
+        background:#ffffff !important;
+        border: 1px solid #d0d7de !important;
+        box-shadow:none !important;
+      }
+      .tilecard::after, .clickhint{ display:none !important; }
+      h1,h2,h3,h4{ color:#000 !important; }
+      .muted, .meta, .subtitle{ color:#222 !important; }
+      .wrap{ max-width: 100% !important; padding: 0 !important; }
+      section{ break-inside: avoid; }
+    }
+
+
+    /* Dark mode heading readability fix */
+    html[data-theme="dark"] h1,
+    html[data-theme="dark"] h2,
+    html[data-theme="dark"] h3,
+    html[data-theme="dark"] h4,
+    html[data-theme="dark"] .section-title h2,
+    html[data-theme="dark"] .modal-header h3{
+      color: #eaf2ff !important;
+    }
+    html[data-theme="dark"] .meta,
+    html[data-theme="dark"] .subtitle,
+    html[data-theme="dark"] .section-title p{
+      color: #c7d2fe !important;
+    }
+
+
+/* HERO PHOTO FIX */
+.hero img,
+.profile-photo img,
+.hero-photo img {
+  max-width: 320px !important;
+  height: auto !important;
+  object-fit: cover;
+}
+.hero-photo-wrapper,
+.profile-photo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+
+/* HERO PHOTO CENTER + ROUND */
+.hero img,
+.profile-photo img,
+.hero-photo img {
+  display: block;
+  margin: 0 auto !important;
+  max-width: 320px !important;
+  height: auto !important;
+  object-fit: cover;
+  border-radius: 22px !important;
+}
+
+
+/* HERO TITLE SPLIT */
+.hero-subrole{
+  display:block;
+  font-size:0.55em;
+  font-weight:400;
+  opacity:0.82;
+  margin-top:0.4rem;
+}
+
+</style>
+</head>
+
+<body>
+  <div class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="logo" aria-hidden="true"></span>
+        <span>Ebubekir Baktır</span>
+      </a>
+
+      <nav class="navlinks" aria-label="Menu">
+        <a href="#top" data-i18n="nav_home">Start</a>
+        <a href="#work" data-i18n="nav_work">Bereiche</a>
+        <a href="#contact" data-i18n="nav_contact">Kontakt</a>
+      </nav>
+
+      <div class="cta">
+        <div class="lang" aria-label="Language">
+          <button type="button" id="lang-de" aria-pressed="true">DE</button>
+          <button type="button" id="lang-en" aria-pressed="false">EN</button>
+          <button type="button" id="lang-tr" aria-pressed="false">TR</button>
+        </div>
+
+        <button class="btn" type="button" id="themeToggle" aria-label="Toggle dark/light">
+          <span id="themeIcon" aria-hidden="true">🌙</span>
+          <span data-i18n="btn_theme">Dark</span>
+        </button>
+        <a class="btn" href="assets/CV.pdf" target="_blank" rel="noopener" data-i18n="btn_cv">CV öffnen</a>
+        <a class="btn primary" href="#contact" data-i18n="btn_contact">Kontakt</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="top" class="wrap hero">
+    <div class="hero-grid">
+      <section class="card hero-card">
+        <span class="kicker" data-i18n="hero_kicker">✨ Willkommen • Kurzprofil</span>
+
+        <h1 class="hero-title">Fachinformatiker für Systemintegration (FISI) <span class="hero-subrole">| Junior IT &amp; Netzwerk</span></h1>
+
+        <p class="subtitle" data-i18n="hero_sub">
+          Ausbildung/Umschulung zum Fachinformatiker für Systemintegration (FISI) bei GFN GmbH. Absolvent eines Data Science Bootcamps. Ehemaliger Mathematiklehrer.
+          Fokus: IT-Support, Linux- und Netzwerkgrundlagen sowie praxisnahe Projekte.
+        </p>
+
+        <div class="badges">
+          <span class="badge" data-i18n="badge_role">💼 FISI (Umschulung)</span>
+          <span class="badge" data-i18n="badge_loc">📍 Ludwigshafen</span>
+          <span class="badge">📧 ebubekirbaktir38@gmail.com</span>
+        </div>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <button class="btn primary" type="button" data-open="projects" data-i18n="btn_open_projects">Projekte öffnen</button>
+          <button class="btn" type="button" data-open="certs" data-i18n="btn_open_certs">Zertifikate öffnen</button>
+          <a class="btn" href="https://www.linkedin.com/in/ebubekir-bakt%C4%B1r-baba0b236/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </section>
+
+      <aside class="card side">
+        <div class="avatar">
+          <img src="assets/profile.jpg" alt="Ebubekir Baktır – Profilfoto">
+        </div>
+
+        <div class="mini">
+          <div class="tile">
+            <div class="t" data-i18n="tile_title1">Rolle</div>
+            <div class="v" data-i18n="tile_value1">FISI (Systemintegration)</div>
+          </div>
+          <div class="tile">
+            <div class="t" data-i18n="tile_title2">Führerschein</div>
+            <div class="v" data-i18n="tile_value2">B-Klasse</div>
+          </div>
+          <div class="tile">
+            <div class="t" data-i18n="tile_title3">Adresse</div>
+            <div class="v">67063 Ludwigshafen</div>
+          </div>
+          <div class="tile">
+            <div class="t" data-i18n="tile_title4">Telefon</div>
+            <div class="v"><a href="tel:+491608531504">0160 8531504</a></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <section id="work">
+      <div class="section-title">
+        <div>
+          <h2 data-i18n="work_title">Bereiche</h2>
+          <p data-i18n="work_desc">Klicke auf eine Karte, um Details zu sehen (statt alles auf einmal).</p>
+        </div>
+      </div>
+
+      <div class="collection">
+
+        <button class="tilecard" type="button" data-open="education">
+          <h3 data-i18n="card_edu_t">Ausbildung & Bootcamp</h3>
+          <p class="meta" data-i18n="card_edu_d">FISI (GFN) + Data Science Bootcamp (Infotech Academy).</p>
+          <div class="clickhint" data-i18n="hint_open"></div>
+          
+        </button>
+        <button class="tilecard" type="button" data-open="projects">
+          <h3 data-i18n="card_projects_t">Projekte</h3>
+          <p class="meta" data-i18n="card_projects_d">Banka-Simulation, Airbnb Data/ML, Netzwerk & Smart Home.</p>
+          
+        </button>
+
+        <button class="tilecard" type="button" data-open="certs">
+          <h3 data-i18n="card_certs_t">Zertifikate</h3>
+          <p class="meta" data-i18n="card_certs_d">IoT/AI, Linux Basics, Python Advanced, Cisco Packet Tracer.</p>
+          
+        </button>
+
+        <button class="tilecard" type="button" data-open="cv">
+          <h3 data-i18n="card_cv_t">CV & Profil</h3>
+          <p class="meta" data-i18n="card_cv_d">Kurzprofil, Erfahrung und PDF-Lebenslauf.</p>
+          <div class="clickhint" data-i18n="hint_open"></div>
+          
+        </button>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title">
+        <div>
+          <h2 data-i18n="con_title">Kontakt</h2>
+          <p data-i18n="con_desc">Direkt erreichbar per E-Mail, Telefon oder LinkedIn.</p>
+        </div>
+      </div>
+
+      <div class="collection" style="grid-template-columns: 1.2fr .8fr; gap:14px;">
+        <div class="card" style="padding:16px;">
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn primary" href="mailto:ebubekirbaktir38@gmail.com">ebubekirbaktir38@gmail.com</a>
+            <a class="btn" href="tel:+491608531504">0160 8531504</a>
+            <a class="btn" href="assets/CV.pdf" target="_blank" rel="noopener" data-i18n="btn_cv2">CV öffnen</a>
+          </div>
+          <div style="margin-top:12px; color:var(--muted); font-size:13px; line-height:1.6;">
+            <b data-i18n="con_addr_t">Adresse:</b> Prinzregentenstraße 24, 67063 Ludwigshafen<br>
+            <b>LinkedIn:</b> <a href="https://www.linkedin.com/in/ebubekir-bakt%C4%B1r-baba0b236/" target="_blank" rel="noopener">Profil</a>
+          </div>
+        </div>
+
+        <div class="card" style="padding:16px;">
+          <div style="font-weight:700; margin-bottom:8px;" data-i18n="con_quick">Schnellzugriff</div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn" type="button" data-open="projects" data-i18n="btn_open_projects2">Projekte</button>
+            <button class="btn" type="button" data-open="certs" data-i18n="btn_open_certs2">Zertifikate</button>
+            <button class="btn" type="button" data-open="education" data-i18n="btn_open_edu2">Ausbildung</button>
+            <button class="btn" type="button" data-open="cv" data-i18n="btn_open_cv2">CV</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="f">
+        <span>© <span id="year"></span> Ebubekir Baktır • ebubekirbaktir.de</span>
+        <span class="muted" data-i18n="foot_note">Türkis Dark • Klick-Details • Mehrsprachig</span>
+      </div>
+    </footer>
+  </main>
+
+  <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Details">
+    <div class="modal" role="document">
+      <div class="modal-header">
+        <div>
+          <h3 id="modalTitle">Details</h3>
+          <p id="modalSub"></p>
+        </div>
+        <button class="close" id="closeBtn" type="button">✕</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script>
+    const INFOTECH_CERT_URL = "https://drive.google.com/file/d/131btjADwin-dQP0JATcsVHeqZMEt1YmW/view?usp=sharing";
+    // Tip: Sertifika linkini buraya yapıştır.
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const overlay = document.getElementById("overlay");
+    const closeBtn = document.getElementById("closeBtn");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalSub = document.getElementById("modalSub");
+    const modalBody = document.getElementById("modalBody");
+
+    function openModal(key){
+      window.__lastOpenKey = key;
+      const data = MODALS[currentLang][key];
+      modalTitle.textContent = data.title;
+      modalSub.textContent = data.sub;
+      modalBody.innerHTML = data.html;
+      overlay.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+    function closeModal(){
+      overlay.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+    closeBtn.addEventListener("click", closeModal);
+    overlay.addEventListener("click", (e)=>{ if(e.target === overlay) closeModal(); });
+    document.addEventListener("keydown", (e)=>{ if(e.key === "Escape" && overlay.classList.contains("open")) closeModal(); });
+
+    document.querySelectorAll("[data-open]").forEach(btn=>{
+      btn.addEventListener("click", ()=>openModal(btn.getAttribute("data-open")));
+    });
+
+    const MODALS = {
+      de: {
+        projects: {
+          title: "Projekte",
+          sub: "Teamprojekte – Software, Data/ML und Netzwerk.",
+          html: `
+            <div class="modal-grid">
+              <div class="box">
+                <h4>Data Science (Team)</h4>
+                <ul>
+                  <li><b>Airbnb Datenanalyse & Machine Learning</b>: Cleaning, Feature Engineering, Preisvergleiche (Stadtteile/Typen)</li>
+                  <li>Tools: GitHub, Trello, Zoom, VS Code</li>
+                  <li style="list-style:none; margin-top:10px;"><a class="btn primary" style="padding:9px 12px; font-size:13px;" href="https://www.linkedin.com/posts/nuseybe-karakurt-b4782a21b_we-have-completed-our-project-that-we-have-ugcPost-7094337340097081344-TSrY" target="_blank" rel="noopener">View case study on LinkedIn</a></li>
+                </ul>
+                <div style="margin-top:10px" class="tags">
+                  <span class="tag">Python</span><span class="tag">Data Cleaning</span><span class="tag">ML</span>
+                </div>
+              </div>
+              <div class="box">
+                <h4>Software (Team)</h4>
+                <ul>
+                  <li><b>Bank simulation</b>: Python + PyQt5 UI</li>
+                  <li style="list-style:none; margin-top:10px;"><a class="btn primary" style="padding:9px 12px; font-size:13px;" href="https://www.linkedin.com/posts/ebubekir-bakt%C4%B1r-baba0b236_i-started-the-data-science-trainings-of-the-activity-7037215028436987904-b8sd" target="_blank" rel="noopener">View case study on LinkedIn</a></li>
+                  <li>NoSQL, Admin-/User-Login, Rollen/Permissions</li>
+                </ul>
+                <div style="margin-top:10px" class="tags">
+                  <span class="tag">Python</span><span class="tag">PyQt5</span><span class="tag">NoSQL</span>
+                </div>
+              </div>
+              <div class="box">
+                <h4>Networking / IoT</h4>
+                <ul>
+                  <li><b>Virtuelles Firmennetzwerk</b> (Planung & Simulation)</li>
+                  <li><b>Smart Home</b> Szenario (IoT) in Cisco Packet Tracer</li>
+                </ul>
+                <div style="margin-top:10px" class="tags">
+                  <span class="tag">Cisco</span><span class="tag">Networking</span><span class="tag">IoT</span>
+                </div>
+              </div>
+              <div class="box">
+                <h4>Team-Workflow</h4>
+                <ul>
+                  <li>Aufgaben: Trello • Abstimmung: Zoom</li>
+                  <li>Versionierung: GitHub • Entwicklung: VS Code</li>
+                  <li>Dokumentation & klare Kommunikation</li>
+                </ul>
+              </div>
+            </div>
+`
+        },
+        certs: {
+          title: "Zertifikate",
+          sub: "Aus dem Lebenslauf – externe Links.",
+          html: `
+            <div class="timeline">
+              <div class="titem">
+                <span class="dot"></span>
+                <div class="tcard">
+                  <div class="top"><b>Data Science Bootcamp — Infotech Academy</b><span>Bootcamp</span></div>
+                  <p>Python • Machine Learning • Data Analysis. <a target="_blank" rel="noopener" href="${INFOTECH_CERT_URL}">Zum Zertifikat</a></p>
+                  <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <span class="pill">Infotech Academy</span>
+                    <span class="pill">Data Science</span>
+                    <span class="pill">ML</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="titem">
+                <span class="dot"></span>
+                <div class="tcard">
+                  <div class="top"><b>Introduction to IoT, AI and Content Creation</b><span>Zertifikat</span></div>
+                  <p><a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1MONPRIWRI87eUGFj55rTMOFq-RFGQui9/view?usp=sharing">Zertifikat öffnen</a></p>
+                  <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <span class="pill">IoT</span><span class="pill">AI</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="titem">
+                <span class="dot"></span>
+                <div class="tcard">
+                  <div class="top"><b>Linux Basiskurs</b><span>Zertifikat</span></div>
+                  <p><a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1xd3aPv0YzZ5IY79ahMJ9-ji_vxkFZSbS/view?usp=sharing">Zertifikat öffnen</a></p>
+                  <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <span class="pill">Linux</span><span class="pill">Basics</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="titem">
+                <span class="dot"></span>
+                <div class="tcard">
+                  <div class="top"><b>Python Advanced (Python 301)</b><span>Zertifikat</span></div>
+                  <p><a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1CUrFbPteRR6aPMle_sALTlOXFjNey5Oe/view?usp=sharing">Zertifikat öffnen</a></p>
+                  <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <span class="pill">Python</span><span class="pill">Advanced</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="titem">
+                <span class="dot"></span>
+                <div class="tcard">
+                  <div class="top"><b>Cisco Packet Tracer</b><span>Zertifikat</span></div>
+                  <p><a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1oOFWGvIGZwadqfJD9MG_SMgYEL9dKbD3/view?usp=sharing">Zertifikat öffnen</a></p>
+                  <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <span class="pill">Cisco</span><span class="pill">Networking</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+`
+        },
+        education: { title: "Ausbildung & Bootcamp", sub: "Timeline-Ansicht: Ausbildung/Umschulung + Bootcamp + Erfahrung.", html: `
+            <div class="timeline">
+              <div class="titem">
+                <span class="dot"></span>
+                <div class="tcard">
+                  <div class="top"><b>Ausbildung/Umschulung: Fachinformatiker für Systemintegration (FISI)</b><span>GFN GmbH</span></div>
+                  <p>Schwerpunkte: Systemintegration, IT-Support, Linux- und Netzwerkgrundlagen, Praxisprojekte.</p>
+                  <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <span class="pill">Systemintegration</span><span class="pill">Linux</span><span class="pill">Netzwerk</span>
+                  </div>
+                </div>
+              </div>
+
+              
+              <div class="titem">
+                <span class="dot"></span>
+                <div class="tcard">
+                  <div class="top"><b>Studium der Mathematik (Bachelorabschluss)</b><span>Marmara Universität</span></div>
+                  <p>Fundament: analytisches Denken, Modellierung, Problemlösung und strukturierte Arbeitsweise.</p>
+                  <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <span class="pill">Mathematik</span><span class="pill">Analytik</span><span class="pill">Problemlösung</span>
+                  </div>
+                </div>
+              </div>
+<div class="titem">
+                <span class="dot"></span>
+                <div class="tcard">
+                  <div class="top"><b>Data Science Bootcamp</b><span>Infotech Academy</span></div>
+                  <p>Python • Datenanalyse • Machine Learning. Teamprojekt: Airbnb-Analyse & Preisprognosen/Vergleiche.</p>
+                  <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <span class="pill">Python</span><span class="pill">Data</span><span class="pill">ML</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="titem">
+                <span class="dot"></span>
+                <div class="tcard">
+                  <div class="top"><b>Berufserfahrung: Mathematiklehrer (selbständig)</b><span>07/2009 – 03/2022</span></div>
+                  <p>Stärken: Didaktik, klare Kommunikation, Geduld, strukturierte Problemlösung.</p>
+                  <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <span class="pill">Kommunikation</span><span class="pill">Analytik</span><span class="pill">Dokumentation</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+` },
+        cv: {
+          title: "CV & Profil",
+          sub: "Kurzprofil & Kontaktdaten.",
+          html: `
+            <div class="modal-grid">
+              <div class="box">
+                <h4>Kurzprofil</h4>
+                <ul>
+                  <li>Ausbildung/Umschulung: Fachinformatiker für Systemintegration (FISI) – GFN GmbH</li>
+                  <li>Mathematiklehrer (07/2009–03/2022, Istanbul)</li>
+                  <li>Standort: Ludwigshafen • Führerschein: Klasse B</li>
+                </ul>
+              </div>
+              <div class="box">
+                <h4>Kontakt</h4>
+                <ul>
+                  <li>E-Mail: <a href="mailto:ebubekirbaktir38@gmail.com">ebubekirbaktir38@gmail.com</a></li>
+                  <li>Telefon: <a href="tel:+491608531504">0160 8531504</a></li>
+                  <li>Adresse: Prinzregentenstraße 24, 67063 Ludwigshafen</li>
+                  <li>LinkedIn: <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/ebubekir-bakt%C4%B1r-baba0b236/">Profil öffnen</a></li>
+                </ul>
+                <div style="margin-top:10px">
+                  <a class="btn primary" href="assets/CV.pdf" target="_blank" rel="noopener">CV (PDF) öffnen</a>
+                </div>
+              </div>
+            </div>
+          `
+        }
+      },
+      en: {
+        projects: { title:"Projects", sub:"Team projects — Software, Data/ML, and Networking.",
+          html: `
+            <div class="modal-grid">
+              <div class="box">
+                <h4>Data Science (Team)</h4>
+                <ul>
+                  <li><b>Airbnb Data Analysis & ML</b>: cleaning, feature engineering, average price comparisons (areas/types)</li>
+                  <li>Tools: GitHub, Trello, Zoom, VS Code</li>
+                  <li style="list-style:none; margin-top:10px;"><a class="btn primary" style="padding:9px 12px; font-size:13px;" href="https://www.linkedin.com/posts/nuseybe-karakurt-b4782a21b_we-have-completed-our-project-that-we-have-ugcPost-7094337340097081344-TSrY" target="_blank" rel="noopener">View case study on LinkedIn</a></li>
+                </ul>
+                <div style="margin-top:10px" class="tags">
+                  <span class="tag">Python</span><span class="tag">Data</span><span class="tag">ML</span>
+                </div>
+              </div>
+              <div class="box">
+                <h4>Software (Team)</h4>
+                <ul>
+                  <li><b>Bank Simulation</b>: Python + PyQt5 GUI</li>
+                  <li>NoSQL, admin/user login, role-based access</li>
+                </ul>
+                <div style="margin-top:10px" class="tags">
+                  <span class="tag">Python</span><span class="tag">PyQt5</span><span class="tag">NoSQL</span>
+                </div>
+              </div>
+              <div class="box">
+                <h4>Networking / IoT</h4>
+                <ul>
+                  <li><b>Virtual company network</b> (planning & simulation)</li>
+                  <li><b>Smart Home</b> (IoT) in Cisco Packet Tracer</li>
+                </ul>
+                <div style="margin-top:10px" class="tags">
+                  <span class="tag">Cisco</span><span class="tag">Networking</span><span class="tag">IoT</span>
+                </div>
+              </div>
+              <div class="box">
+                <h4>Team workflow</h4>
+                <ul>
+                  <li>Task tracking: Trello • Meetings: Zoom</li>
+                  <li>Version control: GitHub • Dev: VS Code</li>
+                  <li>Documentation & communication</li>
+                </ul>
+              </div>
+            </div>
+`},
+        certs: { title:"Certificates", sub:"From the CV — external links.",
+          html: `
+            <div class="timeline">
+              <div class="titem">
+                <span class="dot"></span>
+                <div class="tcard">
+                  <div class="top"><b>Data Science Bootcamp — Infotech Academy</b><span>Bootcamp</span></div>
+                  <p>Python • Machine Learning • Data Analysis. <a target="_blank" rel="noopener" href="#" data-infotech-link="1" href="#">Open certificate</a></p>
+                  <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <span class="pill">Infotech Academy</span>
+                    <span class="pill">Data Science</span>
+                    <span class="pill">ML</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="titem">
+                <span class="dot"></span>
+                <div class="tcard">
+                  <div class="top"><b>Introduction to IoT, AI and Content Creation</b><span>Certificate</span></div>
+                  <p><a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1MONPRIWRI87eUGFj55rTMOFq-RFGQui9/view?usp=sharing">Open certificate</a></p>
+                  <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <span class="pill">IoT</span><span class="pill">AI</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="titem">
+                <span class="dot"></span>
+                <div class="tcard">
+                  <div class="top"><b>Linux Basics</b><span>Certificate</span></div>
+                  <p><a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1xd3aPv0YzZ5IY79ahMJ9-ji_vxkFZSbS/view?usp=sharing">Open certificate</a></p>
+                  <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <span class="pill">Linux</span><span class="pill">Basics</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="titem">
+                <span class="dot"></span>
+                <div class="tcard">
+                  <div class="top"><b>Python Advanced (Python 301)</b><span>Certificate</span></div>
+                  <p><a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1CUrFbPteRR6aPMle_sALTlOXFjNey5Oe/view?usp=sharing">Open certificate</a></p>
+                  <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <span class="pill">Python</span><span class="pill">Advanced</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="titem">
+                <span class="dot"></span>
+                <div class="tcard">
+                  <div class="top"><b>Cisco Packet Tracer</b><span>Certificate</span></div>
+                  <p><a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1oOFWGvIGZwadqfJD9MG_SMgYEL9dKbD3/view?usp=sharing">Open certificate</a></p>
+                  <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <span class="pill">Cisco</span><span class="pill">Networking</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+`},
+        education: { title: "Education & Bootcamp", sub: "Timeline view: training + bootcamp + experience.", html: `
+            <div class="timeline">
+              <div class="titem">
+                <span class="dot"></span>
+                <div class="tcard">
+                  <div class="top"><b>Training: System Integration (FISI)</b><span>GFN GmbH</span></div>
+                  <p>Focus: system integration, IT support, Linux & networking fundamentals, practical projects.</p>
+                  <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <span class="pill">Systems</span><span class="pill">Linux</span><span class="pill">Networking</span>
+                  </div>
+                </div>
+              </div>
+
+              
+              <div class="titem">
+                <span class="dot"></span>
+                <div class="tcard">
+                  <div class="top"><b>Bachelor’s Degree in Mathematics</b><span>Marmara University</span></div>
+                  <p>Strong foundation in analytical thinking, modeling, problem solving, and structured work.</p>
+                  <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <span class="pill">Mathematics</span><span class="pill">Analytics</span><span class="pill">Problem-solving</span>
+                  </div>
+                </div>
+              </div>
+<div class="titem">
+                <span class="dot"></span>
+                <div class="tcard">
+                  <div class="top"><b>Data Science Bootcamp</b><span>Infotech Academy</span></div>
+                  <p>Python • data analysis • machine learning. Team project: Airbnb analysis & price comparisons.</p>
+                  <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <span class="pill">Python</span><span class="pill">Data</span><span class="pill">ML</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="titem">
+                <span class="dot"></span>
+                <div class="tcard">
+                  <div class="top"><b>Work: Mathematics Teacher (self-employed)</b><span>Jul 2009 – Mar 2022</span></div>
+                  <p>Strengths: communication, patience, structured problem solving.</p>
+                  <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <span class="pill">Communication</span><span class="pill">Problem-solving</span><span class="pill">Documentation</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+` },
+        cv: { title:"CV & Profile", sub:"Summary and contact details.",
+          html: `
+            <div class="modal-grid">
+              <div class="box"><h4>Summary</h4><ul>
+                <li>Training: System Integration (FISI) — GFN GmbH</li>
+                <li>Former mathematics teacher (Jul 2009–Mar 2022, Istanbul)</li><li>Data Science Bootcamp – Infotech Academy (Python, ML, Data Analysis)</li>
+                <li>Location: Ludwigshafen • Driving license: Class B</li>
+              </ul></div>
+              <div class="box"><h4>Contact</h4><ul>
+                <li>Email: <a href="mailto:ebubekirbaktir38@gmail.com">ebubekirbaktir38@gmail.com</a></li>
+                <li>Phone: <a href="tel:+491608531504">0160 8531504</a></li>
+                <li>Address: Prinzregentenstraße 24, 67063 Ludwigshafen</li>
+                <li>LinkedIn: <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/ebubekir-bakt%C4%B1r-baba0b236/">Open profile</a></li>
+              </ul><div style="margin-top:10px"><a class="btn primary" href="assets/CV.pdf" target="_blank" rel="noopener">Open CV (PDF)</a></div></div>
+            </div>`}
+      },
+      tr: {
+        projects: { title:"Projeler", sub:"Takım projeleri — Yazılım, Veri/ML ve Ağ.",
+          html: `
+            <div class="modal-grid">
+              <div class="box">
+                <h4>Data Science (Takım)</h4>
+                <ul>
+                  <li><b>Airbnb Veri Analizi & ML</b>: temizlik, feature engineering, mahalle/ev tipi ortalama fiyat karşılaştırması</li>
+                  <li>Araçlar: GitHub, Trello, Zoom, VS Code</li>
+                  <li style="list-style:none; margin-top:10px;"><a class="btn primary" style="padding:9px 12px; font-size:13px;" href="https://www.linkedin.com/posts/nuseybe-karakurt-b4782a21b_we-have-completed-our-project-that-we-have-ugcPost-7094337340097081344-TSrY" target="_blank" rel="noopener">Case study (LinkedIn) aç</a></li>
+                </ul>
+                <div style="margin-top:10px" class="tags">
+                  <span class="tag">Python</span><span class="tag">Veri</span><span class="tag">ML</span>
+                </div>
+              </div>
+              <div class="box">
+                <h4>Yazılım (Takım)</h4>
+                <ul>
+                  <li><b>Banka Simülasyonu</b>: Python + PyQt5 arayüz</li>
+                  <li>NoSQL, admin/kullanıcı girişleri, yetkilendirme</li>
+                </ul>
+                <div style="margin-top:10px" class="tags">
+                  <span class="tag">Python</span><span class="tag">PyQt5</span><span class="tag">NoSQL</span>
+                </div>
+              </div>
+              <div class="box">
+                <h4>Ağ / IoT</h4>
+                <ul>
+                  <li><b>Sanal iş yeri ağı</b> (planlama & simülasyon)</li>
+                  <li><b>Akıllı ev</b> (IoT) Cisco Packet Tracer</li>
+                </ul>
+                <div style="margin-top:10px" class="tags">
+                  <span class="tag">Cisco</span><span class="tag">Ağ</span><span class="tag">IoT</span>
+                </div>
+              </div>
+              <div class="box">
+                <h4>Takım çalışma akışı</h4>
+                <ul>
+                  <li>Takip: Trello • Toplantı: Zoom</li>
+                  <li>Versiyon: GitHub • Geliştirme: VS Code</li>
+                  <li>Dokümantasyon & iletişim</li>
+                </ul>
+              </div>
+            </div>
+`},
+        certs: { title:"Sertifikalar", sub:"CV’den — harici linkler.",
+          html: `
+            <div class="timeline">
+              <div class="titem">
+                <span class="dot"></span>
+                <div class="tcard">
+                  <div class="top"><b>Data Science Bootcamp — Infotech Academy</b><span>Bootcamp</span></div>
+                  <p>Python • Makine Öğrenmesi • Veri Analizi. <a target="_blank" rel="noopener" href="#" data-infotech-link="1" href="#">Zertifikat öffnen</a></p>
+                  <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <span class="pill">Infotech Academy</span>
+                    <span class="pill">Data Science</span>
+                    <span class="pill">ML</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="titem">
+                <span class="dot"></span>
+                <div class="tcard">
+                  <div class="top"><b>IoT, AI ve Content Creation</b><span>Sertifika</span></div>
+                  <p><a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1MONPRIWRI87eUGFj55rTMOFq-RFGQui9/view?usp=sharing">Zertifikat öffnen</a></p>
+                  <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <span class="pill">IoT</span><span class="pill">AI</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="titem">
+                <span class="dot"></span>
+                <div class="tcard">
+                  <div class="top"><b>Linux Temel</b><span>Sertifika</span></div>
+                  <p><a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1xd3aPv0YzZ5IY79ahMJ9-ji_vxkFZSbS/view?usp=sharing">Zertifikat öffnen</a></p>
+                  <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <span class="pill">Linux</span><span class="pill">Temel</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="titem">
+                <span class="dot"></span>
+                <div class="tcard">
+                  <div class="top"><b>Python Advanced (Python 301)</b><span>Sertifika</span></div>
+                  <p><a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1CUrFbPteRR6aPMle_sALTlOXFjNey5Oe/view?usp=sharing">Zertifikat öffnen</a></p>
+                  <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <span class="pill">Python</span><span class="pill">İleri</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="titem">
+                <span class="dot"></span>
+                <div class="tcard">
+                  <div class="top"><b>Cisco Packet Tracer</b><span>Sertifika</span></div>
+                  <p><a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1oOFWGvIGZwadqfJD9MG_SMgYEL9dKbD3/view?usp=sharing">Zertifikat öffnen</a></p>
+                  <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <span class="pill">Cisco</span><span class="pill">Ağ</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+`},
+        education: { title: "Eğitim & Bootcamp", sub: "Timeline görünüm: Ausbildung/Umschulung + Bootcamp + deneyim.", html: `
+            <div class="timeline">
+              <div class="titem">
+                <span class="dot"></span>
+                <div class="tcard">
+                  <div class="top"><b>Ausbildung/Umschulung: FISI (Systemintegration)</b><span>GFN GmbH</span></div>
+                  <p>Odak: sistem entegrasyonu, IT destek, Linux ve ağ temeli, pratik projeler.</p>
+                  <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <span class="pill">Sistem</span><span class="pill">Linux</span><span class="pill">Ağ</span>
+                  </div>
+                </div>
+              </div>
+
+              
+              <div class="titem">
+                <span class="dot"></span>
+                <div class="tcard">
+                  <div class="top"><b>Matematik Lisans (Bachelor)</b><span>Marmara Üniversitesi</span></div>
+                  <p>Temel: analitik düşünme, modelleme, problem çözme ve sistemli çalışma alışkanlığı.</p>
+                  <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <span class="pill">Matematik</span><span class="pill">Analitik</span><span class="pill">Problem</span>
+                  </div>
+                </div>
+              </div>
+<div class="titem">
+                <span class="dot"></span>
+                <div class="tcard">
+                  <div class="top"><b>Data Science Bootcamp</b><span>Infotech Academy</span></div>
+                  <p>Python • veri analizi • makine öğrenmesi. Takım projesi: Airbnb analizi & fiyat karşılaştırmaları.</p>
+                  <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <span class="pill">Python</span><span class="pill">Veri</span><span class="pill">ML</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="titem">
+                <span class="dot"></span>
+                <div class="tcard">
+                  <div class="top"><b>İş deneyimi: Matematik Öğretmeni (serbest)</b><span>07/2009 – 03/2022</span></div>
+                  <p>Güçlü yönler: anlatım, sabır, net iletişim, sistemli problem çözme.</p>
+                  <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <span class="pill">İletişim</span><span class="pill">Analitik</span><span class="pill">Dokümantasyon</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+` },
+        cv: { title:"CV & Profil", sub:"Özet ve iletişim bilgileri.",
+          html: `
+            <div class="modal-grid">
+              <div class="box"><h4>Özet</h4><ul>
+                <li>GFN GmbH’de FISI (Systemintegration) Umschulung</li>
+                <li>Matematik öğretmeni (07/2009–03/2022, İstanbul)</li><li>Data Science Bootcamp – Infotech Academy (Python, Makine Öğrenmesi, Veri Analizi)</li>
+                <li>Konum: Ludwigshafen • Ehliyet: B sınıfı</li>
+              </ul></div>
+              <div class="box"><h4>İletişim</h4><ul>
+                <li>E-posta: <a href="mailto:ebubekirbaktir38@gmail.com">ebubekirbaktir38@gmail.com</a></li>
+                <li>Telefon: <a href="tel:+491608531504">0160 8531504</a></li>
+                <li>Adres: Prinzregentenstraße 24, 67063 Ludwigshafen</li>
+                <li>LinkedIn: <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/ebubekir-bakt%C4%B1r-baba0b236/">Profili aç</a></li>
+              </ul><div style="margin-top:10px"><a class="btn primary" href="assets/CV.pdf" target="_blank" rel="noopener">CV (PDF) aç</a></div></div>
+            </div>`}
+      }
+    };
+
+    const I18N = {
+      de: {nav_home:"Start", nav_work:"Bereiche", nav_contact:"Kontakt", btn_cv:"CV öffnen", btn_cv2:"CV öffnen", btn_contact:"Kontakt",
+        hero_kicker:"✨ Willkommen • Kurzprofil", hero_i:"Ich bin",
+        hero_sub:"Umschüler zum Fachinformatiker für Systemintegration (FISI) bei der GFN GmbH mit praxisnaher Erfahrung in IT-Support, Netzwerktechnik und Linux-Grundlagen. Bachelorabschluss in Mathematik sowie mehrjährige Berufserfahrung als Mathematiklehrer. Strukturierte, zuverlässige und lösungsorientierte Arbeitsweise.",
+        badge_role:"💼 FISI (Umschulung)", badge_loc:"📍 Ludwigshafen",
+        tile_title1:"Rolle", tile_value1:"FISI (Systemintegration)", tile_title2:"Führerschein", tile_value2:"B-Klasse", tile_title3:"Adresse", tile_title4:"Telefon",
+        work_title:"Bereiche", work_desc:"Klicke auf eine Karte, um Details zu sehen (statt alles auf einmal).",
+        card_projects_t:"Projekte", card_projects_d:"Banka-Simulation, Airbnb Data/ML, Netzwerk & Smart Home.",
+        card_certs_t:"Zertifikate", card_certs_d:"IoT/AI, Linux Basics, Python Advanced, Cisco Packet Tracer.",
+        card_cv_t:"CV & Profil", card_cv_d:"Kurzprofil, Erfahrung und PDF-Lebenslauf.",
+        btn_open_projects:"Projekte öffnen", btn_open_certs:"Zertifikate öffnen",
+        con_title:"Kontakt", con_desc:"Direkt erreichbar per E-Mail, Telefon oder LinkedIn.",
+        con_addr_t:"Adresse:", con_quick:"Schnellzugriff",
+        btn_open_projects2:"Projekte", btn_open_certs2:"Zertifikate", btn_open_cv2:"CV",
+        card_edu_t:"Ausbildung & Bootcamp", card_edu_d:"FISI (GFN) + Data Science Bootcamp (Infotech Academy).", btn_open_edu2:"Ausbildung",
+        card_edu_t:"Ausbildung & Bootcamp", card_edu_d:"FISI (GFN) + Data Science Bootcamp (Infotech Academy).", btn_open_edu2:"Ausbildung",
+        card_edu_t:"Ausbildung & Bootcamp", card_edu_d:"FISI (GFN) + Data Science Bootcamp (Infotech Academy).", btn_open_edu2:"Ausbildung",
+        hint_open:"Details öffnen",
+        btn_theme:"Karanlık",
+        foot_note:"Türkis Dark • Klick-Details • Mehrsprachig"},
+      en: {nav_home:"Home", nav_work:"Sections", nav_contact:"Contact", btn_cv:"Open CV", btn_cv2:"Open CV", btn_contact:"Contact",
+        hero_kicker:"✨ Welcome • Short profile", hero_i:"I am",
+        hero_sub:"Career changer (training) for System Integration (FISI) at GFN GmbH. Former mathematics teacher. Focus: IT support, Linux and networking fundamentals, and practical projects.",
+        badge_role:"💼 FISI (training)", badge_loc:"📍 Ludwigshafen",
+        tile_title1:"Role", tile_value1:"FISI (System Integration)", tile_title2:"Driving license", tile_value2:"Class B", tile_title3:"Address", tile_title4:"Phone",
+        work_title:"Sections", work_desc:"Click a card to see details (instead of showing everything at once).",
+        card_projects_t:"Projects", card_projects_d:"Bank simulation, Airbnb data/ML, network & smart home.",
+        card_certs_t:"Certificates", card_certs_d:"IoT/AI, Linux basics, Python advanced, Cisco Packet Tracer.",
+        card_cv_t:"CV & Profile", card_cv_d:"Summary, experience, and PDF resume.",
+        btn_open_projects:"Open projects", btn_open_certs:"Open certificates",
+        con_title:"Contact", con_desc:"Reach me via email, phone, or LinkedIn.",
+        con_addr_t:"Address:", con_quick:"Quick access",
+        btn_open_projects2:"Projects", btn_open_certs2:"Certificates", btn_open_cv2:"CV",
+        foot_note:"Turquoise Dark • Click details • Multilingual"},
+      tr: {nav_home:"Ana Sayfa", nav_work:"Bölümler", nav_contact:"İletişim", btn_cv:"CV aç", btn_cv2:"CV aç", btn_contact:"İletişim",
+        hero_kicker:"✨ Hoş geldin • Kısa profil", hero_i:"Ben",
+        hero_sub:"GFN GmbH’de FISI (Systemintegration) Umschulung yapıyorum. Eski matematik öğretmeni. Odak: IT destek, Linux ve ağ temeli, pratik projeler.",
+        badge_role:"💼 FISI (Umschulung)", badge_loc:"📍 Ludwigshafen",
+        tile_title1:"Rol", tile_value1:"FISI (Systemintegration)", tile_title2:"Ehliyet", tile_value2:"B sınıfı", tile_title3:"Adres", tile_title4:"Telefon",
+        work_title:"Bölümler", work_desc:"Detay görmek için karta tıkla (her şey aynı anda görünmesin).",
+        card_projects_t:"Projeler", card_projects_d:"Banka simülasyonu, Airbnb veri/ML, ağ & akıllı ev.",
+        card_certs_t:"Sertifikalar", card_certs_d:"IoT/AI, Linux, Python Advanced, Cisco Packet Tracer.",
+        card_cv_t:"CV & Profil", card_cv_d:"Kısa profil, deneyim ve PDF CV.",
+        btn_open_projects:"Projeleri aç", btn_open_certs:"Sertifikaları aç",
+        con_title:"İletişim", con_desc:"E-posta, telefon veya LinkedIn ile ulaşabilirsin.",
+        con_addr_t:"Adres:", con_quick:"Hızlı erişim",
+        btn_open_projects2:"Projeler", btn_open_certs2:"Sertifikalar", btn_open_cv2:"CV",
+        foot_note:"Turkuaz Dark • Tıkla-detay • Çok dilli"}
+    };
+
+    let currentLang = "de";
+
+    function setLang(lang){
+      currentLang = lang;
+      document.documentElement.lang = lang === "tr" ? "tr" : (lang === "en" ? "en" : "de");
+      ["de","en","tr"].forEach(l=>{
+        document.getElementById("lang-"+l).setAttribute("aria-pressed", l===lang ? "true":"false");
+      });
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const key = el.getAttribute("data-i18n");
+        const val = I18N[lang][key];
+        if(typeof val === "string"){ el.textContent = val; }
+      });
+            // relabel theme button on language change
+      try{
+        const now = document.documentElement.getAttribute('data-theme') || 'light';
+        const label = document.querySelector('#themeToggle [data-i18n="btn_theme"]');
+        if(label){
+          const isDark = now === 'dark';
+          if(lang === 'de') label.textContent = isDark ? 'Hell' : 'Dunkel';
+          else if(lang === 'tr') label.textContent = isDark ? 'Aydınlık' : 'Karanlık';
+          else label.textContent = isDark ? 'Light' : 'Dark';
+        }
+      }catch(e){}if(overlay.classList.contains("open") && window.__lastOpenKey){
+        openModal(window.__lastOpenKey);
+      }
+    }
+
+    document.getElementById("lang-de").addEventListener("click", ()=>setLang("de"));
+    document.getElementById("lang-en").addEventListener("click", ()=>setLang("en"));
+    document.getElementById("lang-tr").addEventListener("click", ()=>setLang("tr"));
+
+    setLang("de");
+
+    // Theme toggle (dark/light) with persistence
+    const themeBtn = document.getElementById("themeToggle");
+    const themeIcon = document.getElementById("themeIcon");
+
+    function applyTheme(theme){
+      document.documentElement.setAttribute("data-theme", theme);
+      localStorage.setItem("theme", theme);
+
+      const isDark = theme === "dark";
+      themeIcon.textContent = isDark ? "☀️" : "🌙";
+
+      // Update label text based on current language
+      const label = document.querySelector('#themeToggle [data-i18n="btn_theme"]');
+      if(label){
+        if(currentLang === "de") label.textContent = isDark ? "Hell" : "Dunkel";
+        else if(currentLang === "tr") label.textContent = isDark ? "Aydınlık" : "Karanlık";
+        else label.textContent = isDark ? "Light" : "Dark";
+      }
+    }// Initialize theme
+    const savedTheme = localStorage.getItem("theme");
+    applyTheme(savedTheme === "dark" ? "dark" : "light");
+
+    function wireInfotechLinks(){
+      document.querySelectorAll('[data-infotech-link="1"]').forEach(a=>{
+        a.href = INFOTECH_CERT_URL || "#";
+        a.addEventListener("click", (e)=>{
+          if(!INFOTECH_CERT_URL || INFOTECH_CERT_URL.includes("REPLACE_WITH_")){
+            e.preventDefault();
+            alert("Bitte trage deinen Infotech-Zertifikatslink in INFOTECH_CERT_URL ein.");
+          }
+        });
+      });
+    }
+    wireInfotechLinks();
+
+    themeBtn.addEventListener("click", ()=>{
+      const now = document.documentElement.getAttribute("data-theme") || "light";
+      applyTheme(now === "dark" ? "light" : "dark");
+    });
+
+  </script>
+</body>
+</html>
